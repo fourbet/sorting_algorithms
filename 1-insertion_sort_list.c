@@ -40,9 +40,7 @@ void insertion_sort_list(listint_t **list)
 			if (tmp2 != NULL)
 				tmp2->prev = current;
 			else
-			{
 				current->next = NULL;
-			}
 			print_list(*list);
 			if (tmp != NULL)
 				current = next->prev;
