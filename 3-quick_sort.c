@@ -1,5 +1,14 @@
 #include "sort.h"
-
+/**
+ * partition - reorder the array
+ *
+ * @array: array of int
+ * @size: size of the array
+ * @left: index from Left
+ * @right: index from right
+ *
+ * Return: void
+ */
 int partition(int *array, int left, int right, size_t size)
 {
 	int pivot;
@@ -28,7 +37,15 @@ int partition(int *array, int left, int right, size_t size)
 		print_array(array, size);
 	return (i + 1);
 }
-
+/**
+ * quick_sort - sorts an array of integers in ascending order
+ * using the Quick sort algorithm
+ *
+ * @array: array of int
+ * @size: size of the array
+ *
+ * Return: void
+ */
 void quick_sort(int *array, size_t size)
 {
 	int idx_l;
