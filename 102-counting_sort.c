@@ -17,7 +17,7 @@ void counting_sort(int *array, size_t size)
 	int value = 0;
 	int j = 0;
 
-	if (size == 0 || array == NULL)
+	if (size < 2 || array == NULL)
 		return;
 
 	for (i = 0; i < size; i++)
@@ -33,7 +33,7 @@ void counting_sort(int *array, size_t size)
 		value = array[i];
 		new[value] = 1;
 	}
-	for (j = 1; j < max + 1; j++)
+	for (j = 1; j < (max + 1); j++)
 		new[j] = new[j] + new[j - 1];
 	print_array(new, max + 1);
 	output = malloc(size * sizeof(int));
