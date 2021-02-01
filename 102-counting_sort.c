@@ -23,16 +23,16 @@ void counting_sort(int *array, size_t size)
 			max = array[i];
 	}
 	new = malloc((max + 1) * sizeof(int));
-	for (j = 0; j < (max + 2); j++)
+	for (j = 0; j < (max + 1); j++)
 		new[j] = 0;
 	for (i = 0; i < size; i++)
 	{
 		value = array[i];
 		new[value] = 1;
 	}
-	for (j = 1; j < max + 2; j++)
+	for (j = 1; j < max + 1; j++)
 		new[j] = new[j] + new[j - 1];
-	print_array(new, max);
+	print_array(new, max + 1);
 	output = malloc(size * sizeof(int));
 	for (i = 0; i < size; i++)
 	{
