@@ -22,11 +22,11 @@ void shell_sort(int *array, size_t size)
 	gap = 4;
 	while (gap >= 1 && ok <= 1)
 	{
-		while(j < size)
+		while (j < size)
 		{
 			i = 0;
 			ref = 0;
-			while((ref * i + j) < size)
+			while ((ref * i + j) < size)
 			{
 				i++;
 				if (i * gap + j >= size)
@@ -67,10 +67,17 @@ void shell_sort(int *array, size_t size)
 		j = 0;
 		gap /= 3;
 		if (gap == 1)
-			ok +=1;
+			ok += 1;
 	}
 }
-
+/**
+ * swap - swap integers in array
+ *
+ *@a: int *
+ *@b: int *
+ *
+ * Return: void
+ */
 void swap(int *a, int *b)
 {
 	int tmp;
