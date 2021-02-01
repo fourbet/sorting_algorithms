@@ -33,11 +33,13 @@ void selection_sort(int *array, size_t size)
 				ok = 1;
 			}
 		}
-		tmp = array[idx_l];
-		array[idx_l] = array[idx_s];
-		array[idx_s] = tmp;
 		if (ok == 1)
+		{
+			tmp = array[idx_l];
+			array[idx_l] = array[idx_s];
+			array[idx_s] = tmp;
 			print_array(array, size);
-		ok = 0;
+			ok = 0;
+		}
 	}
 }
