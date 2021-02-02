@@ -11,63 +11,35 @@
  */
 void shell_sort(int *array, size_t size)
 {
-	size_t gap = 1;
-	int i = 0;
-	size_t ref;
-	size_t j = 0;
-	int ok = 0;
-	int k = 0;
-	int l = 0;
+	size_t gap = 0, j, i, k;
 
-	gap = 4;
-	while (gap >= 1 && ok <= 1)
+	while (gap < size)
+		gap = gap * 3 + 1;
+	gap = gap / 3;
+	for (; gap; gap = gap / 3)
 	{
-		while (j < size)
+		for (j = 0; j < size - gap; j++)
 		{
-			i = 0;
-			ref = 0;
-			while ((ref * i + j) < size)
+			for (i = 0; i < (size / (gap + j)); i++)
 			{
-				i++;
-				if (i * gap + j >= size)
+				if (gap == 1 && i == size - 1)
 					break;
-				if (array[ref + j] > array[i * gap + j])
+				if (array[gap * (i + 1) + j] < array[gap * i + j])
 				{
-					swap(&array[ref + j], &array[i * gap + j]);
-					k = 0;
-					l = j + 1;
-					if (gap == 1)
+					swap(&array[gap * (i + 1) + j], &array[gap * i + j]);
+					k = i;
+					while (k > 0)
 					{
-						while (l > 0)
+						if (array[gap * (k - 1) + j] > array[gap * k + j])
 						{
-							if (array[l] < array[l - 1])
-							{
-								swap(&array[l], &array[l - 1]);
-							}
-							l--;
+							swap(&array[gap * (k - 1) + j], &array[gap * k + j]);
 						}
-					}
-					else
-					{
-						while (k < i)
-						{
-							if (array[gap * k + j] > array[gap * (k + 1) + j])
-							{
-								swap(&array[gap * k + j], &array[gap * (k + 1) + j]);
-							}
-							k++;
-						}
+						k--;
 					}
 				}
-				ref = i * gap;
 			}
-			j += 1;
 		}
 		print_array(array, size);
-		j = 0;
-		gap /= 3;
-		if (gap == 1)
-			ok += 1;
 	}
 }
 /**
