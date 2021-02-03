@@ -28,4 +28,5 @@ void quicksort(int *array, int idx_l, int idx_r, size_t size);
 void shell_sort(int *array, size_t size);
 void swap(int *a, int *b);
 void counting_sort(int *array, size_t size);
+void cocktail_sort_list(listint_t **list);
 #endif
